@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Joke App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 193, 121, 88)),
         useMaterial3: true,
       ),
       home: const JokeListPage(
@@ -60,7 +61,7 @@ class _JokeListPageState extends State<JokeListPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.deepPurple.shade200, Colors.white],
+            colors: [Colors.deepOrange.shade200, Colors.white],
           ),
         ),
         child: Padding(
@@ -69,25 +70,16 @@ class _JokeListPageState extends State<JokeListPage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text(
-                'Welcome to the Joke App!',
+                'Fun Time!',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
+                  color: Colors.deepOrange,
                   shadows: [Shadow(color: Colors.white, blurRadius: 2)],
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
-              const Text(
-                'Click the button to fetch random jokes!',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.deepPurple,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              const Icon(Icons.sentiment_satisfied_alt),
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: _isLoading ? null : _fetchJokes,
@@ -98,7 +90,7 @@ class _JokeListPageState extends State<JokeListPage> {
                   ),
                 ),
                 child: Text(
-                  _isLoading ? 'Loading...' : 'Fetch Jokes',
+                  _isLoading ? 'Loading...' : 'Click Me',
                   style: const TextStyle(fontSize: 18),
                 ),
               ),
@@ -120,7 +112,7 @@ class _JokeListPageState extends State<JokeListPage> {
       return const Center(
         child: Text(
           'No jokes fetched yet.',
-          style: TextStyle(fontSize: 18, color: Colors.deepPurple),
+          style: TextStyle(fontSize: 18, color: Colors.deepOrange),
         ),
       );
     }
